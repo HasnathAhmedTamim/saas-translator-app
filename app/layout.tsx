@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -18,9 +19,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClientProviders>
-      <html lang="en">
-        <body className={inter.className}>
+    // <ClientProviders>
+    //   <html lang="en">
+    //     <body className={inter.className}>
+
+    //       <ThemeProvider
+    //         attribute="class"
+    //         defaultTheme="system"
+    //         enableSystem
+    //         disableTransitionOnChange
+    //       >
+    //         <Header></Header>
+    //         {children}
+    //       </ThemeProvider>
+
+    //     </body>
+    //   </html>
+    // </ClientProviders>
+
+    <html lang="en">
+        <body className='flex flex-col min-h-screen'>
 
           <ThemeProvider
             attribute="class"
@@ -34,6 +52,5 @@ export default function RootLayout({
 
         </body>
       </html>
-    </ClientProviders>
   );
 }

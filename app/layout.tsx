@@ -5,6 +5,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import ClientProviders from "@/components/ClientProviders";
+import FirebaseAuthProvider from "@/components/FirebaseAuthProvider";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,27 +21,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+
     // <ClientProviders>
     //   <html lang="en">
     //     <body className={inter.className}>
 
-    //       <ThemeProvider
-    //         attribute="class"
-    //         defaultTheme="system"
-    //         enableSystem
-    //         disableTransitionOnChange
-    //       >
-    //         <Header></Header>
-    //         {children}
-    //       </ThemeProvider>
+    //       <FirebaseAuthProvider>
+    //         <ThemeProvider
+    //           attribute="class"
+    //           defaultTheme="system"
+    //           enableSystem
+    //           disableTransitionOnChange
+    //         >
+    //           <Header></Header>
+    //           {children}
+    //         </ThemeProvider>
+    //       </FirebaseAuthProvider>
 
     //     </body>
     //   </html>
     // </ClientProviders>
 
-    <html lang="en">
-        <body className='flex flex-col min-h-screen'>
 
+    <html lang="en">
+      <body className='flex flex-col min-h-screen'>
+
+        <FirebaseAuthProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -49,8 +56,9 @@ export default function RootLayout({
             <Header></Header>
             {children}
           </ThemeProvider>
+        </FirebaseAuthProvider>
 
-        </body>
-      </html>
+      </body>
+    </html>
   );
 }

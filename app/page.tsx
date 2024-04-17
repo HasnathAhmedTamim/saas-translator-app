@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import DemoGif from '@/images/landingPage/demogif.gif'
-export default function Home() {
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/auth";
+export default async function Home() {
+
+  const session = await getServerSession(authOptions);
+  console.log(session)
   return (
     <main className="">
       <div className="relative isolate pt-14 dark:bg-gray-900">
@@ -15,7 +20,7 @@ export default function Home() {
             }}>
           </div>
 
-        
+
 
         </div>
         <div className="py-12 sm:py-20 lg:pb-40">
